@@ -11,7 +11,7 @@ import paho.mqtt.publish as publish
 
 from utils import *
 
-rtl_devices = os.getenv('RTL433_DEVICES', [])
+rtl_devices = map(int, os.getenv('RTL433_DEVICES', '').split(','))
 rtl_frequency = os.getenv('RTL433_FREQUENCY', 433920000)
 
 level = 0 # 8000 default, 0 auto
