@@ -11,7 +11,8 @@ import paho.mqtt.publish as publish
 
 from utils import *
 
-rtl_devices = [12, 51, 29]
+rtl_devices = os.getenv('RTL433_DEVICES', [])
+rtl_frequency = os.getenv('RTL433_FREQUENCY', 433920000)
 
 level = 0 # 8000 default, 0 auto
 sleep_time = 0.1
@@ -23,7 +24,7 @@ config = {
         'host': os.getenv('MQTT_IP', '127.0.0.1'),
         'port':int(os.getenv('MQTT_PORT', 1883)),
         'auth':os.getenv('MQTT_AUTH', None),
-        'command': ['/usr/local/bin/rtl_433', '-F', 'json'] + ['-R {}'.format(d) for d in rtl_devices] + ['-l {}'.format(level)],
+        'command': ['/usr/local/bin/rtl_433', '-F', 'json'] + ['-R {}'.format(d) for d in rtl_devices] + ['-l {}'.format(level)] + ['-f {}'.format(rtl_frequency)],
         'debug': os.getenv('MQTT_DEBUG', True),
 }
 
