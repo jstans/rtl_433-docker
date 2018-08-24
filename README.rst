@@ -45,6 +45,13 @@ The following environmental variables are available,
 | MQTT_DEBUG            | Show debug inforation.                              |
 |                       | Default: True                                       |
 +-----------------------+-----------------------------------------------------+
+| RTL433_DEVICES        | List of devices                                     |
+|                       | Default: []                                         |
+|                       | Format: 12, 51, 29                                  |
++-----------------------+-----------------------------------------------------+
+| RTL433_FREQUENCY      | Set frequency                                       |
+|                       | Default: 433920000                                  |
++-----------------------+-----------------------------------------------------+
 
 Credits
 ========
