@@ -1,5 +1,6 @@
-
-USB_DEVICE=$(lsusb | grep RTL2838)
+if [[ -z $USB_DEVICE ]]; then
+    USB_DEVICE=$(lsusb | grep RTL2838)
+fi
 if [[ -z $USB_DEVICE ]]; then
     echo "No RTLSDR device found!"
     exit
